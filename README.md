@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Quran Mazid Web Application
 
-## Getting Started
+A production-quality, responsive Quran web application built with Next.js 15+, TypeScript, and Tailwind CSS v4. Managed with high-performance Static Site Generation (SSG) for all 114 surahs.
 
-First, run the development server:
+## Features
+
+- **Full Quran Reading**: High-fidelity Uthmanic font rendering (KFGQPC).
+- **Search Engine**: Bilingual search functionality for both Arabic and English translation text.
+- **Global Audio Player**: Persistent playback controls for per-ayah and sequential surah recitation.
+- **Dynamic Themes**: Dark and light modes matching the premium QuranMazid experience.
+- **Personalization**: Customizable Arabic fonts, text sizes, and translation preferences.
+
+## Tech Stack
+
+- **Framework**: Next.js 15+ (App Router)
+- **Styling**: Tailwind CSS v4 (CSS-first)
+- **State Management**: React Context (Global Theme, Global Audio)
+- **Data Layer**: Locally bundled JSON for SSG + SQLite (Hono) for high-performance search.
+- **Backend**: Node.js / Hono for dynamic search and metadata.
+
+## Development
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server (Frontend)
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Run backend server (Hono)
+cd backend
+npm install
+npx tsx index.ts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Data Migration
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+If you update the source JSON data, run the migration to sync the SQLite database:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npx tsx scripts/migrate-to-sqlite.ts
+```
 
-## Learn More
+## Production
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# Build for production
+npm run build
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Start production server
+npm start
+```
