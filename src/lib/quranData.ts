@@ -5,7 +5,7 @@ import translationData from '@/data/quran-translation.json';
 import ayahOffsetMap from '@/data/ayah-offset-map.json';
 import { AUDIO_CDN_BASE } from './constants';
 
-const API_BASE_URL = 'http://localhost:3001/api';
+const API_BASE_URL = '/api';
 
 const surahs: Surah[] = surahsData as Surah[];
 const arabic = arabicData as Record<string, Array<{ ayah: number; text: string }>>;
