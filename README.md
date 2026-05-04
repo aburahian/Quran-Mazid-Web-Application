@@ -2,13 +2,45 @@
 
 A production-quality, responsive Quran web application built with Next.js 15+, TypeScript, and Tailwind CSS v4. Managed with high-performance Static Site Generation (SSG) for all 114 surahs.
 
-## Features
+## ✨ Key Features
 
-- **Full Quran Reading**: High-fidelity Uthmanic font rendering (KFGQPC).
-- **Search Engine**: Bilingual search functionality for both Arabic and English translation text.
-- **Global Audio Player**: Persistent playback controls for per-ayah and sequential surah recitation.
-- **Dynamic Themes**: Dark and light modes matching the premium QuranMazid experience.
-- **Personalization**: Customizable Arabic fonts, text sizes, and translation preferences.
+### 📚 Quran Experience
+- Complete Quran with all **114 Surahs**
+- High-fidelity **Uthmanic script (KFGQPC font)**
+- Clean, distraction-free reading UI
+
+### 🔍 Smart Search
+- Bilingual search (**Arabic + English**)
+- Fast and efficient query handling via SQLite
+- Real-time filtering experience
+
+### 🔊 Global Audio Player
+- Persistent audio player across pages
+- Per-ayah playback
+- Sequential Surah recitation
+- Play / Pause / Resume controls
+
+### 🎨 Personalization
+- Dark / Light mode (system-aware)
+- Adjustable Arabic font styles
+- Customizable text sizes
+- Translation preferences
+
+### 📱 Responsive Design
+- Mobile-first approach
+- Optimized for all screen sizes
+
+---
+
+## 🧠 Architecture & Engineering
+
+This project is built with **production-level architecture**:
+
+- ⚡ Static Site Generation (SSG) for all Surahs
+- 🧩 Modular component structure
+- 🔒 Strict TypeScript (no unnecessary `any`)
+- ♻️ Reusable hooks and services
+- 🎯 Separation of concerns (UI / Logic / Data)
 
 ## Tech Stack
 
