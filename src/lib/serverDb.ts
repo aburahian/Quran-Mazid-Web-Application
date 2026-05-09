@@ -1,5 +1,6 @@
 import Database from 'better-sqlite3';
 import path from 'path';
+import fs from 'fs';
 
 // Use a stable path for the database
 const DB_PATH = path.join(process.cwd(), 'src', 'data', 'quran.db');
@@ -8,7 +9,24 @@ let db: any = null;
 
 function getDb() {
   if (!db) {
-    db = new Database(DB_PATH, { readonly: true });
+    try {
+      console.log(`Attempting to open database at: ${DB_PATH}`);
+      if (!fs.existsSync(DB_PATH)) {
+        console.error(`Database file NOT found at: ${DB_PATH}`);
+        // List directory contents to help debug
+        const dir = path.dirname(DB_PATH);
+        if (fs.existsSync(dir)) {
+          console.log(`Directory ${dir} contents:`, fs.readdirSync(dir));
+        } else {
+          console.error(`Directory ${dir} does NOT exist.`);
+        }
+      }
+      db = new Database(DB_PATH, { readonly: true });
+      console.log('Database opened successfully');
+    } catch (error) {
+      console.error('Failed to open database:', error);
+      throw error;
+    }
   }
   return db;
 }
